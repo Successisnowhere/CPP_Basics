@@ -66,6 +66,7 @@ int main()
         printf("Enter the value of NODE u want to insert:");
         scanf("%d", &n);
         first = insert_at_last(first, n);
+        // first=insert(first,n);
         k--;
 
     }
