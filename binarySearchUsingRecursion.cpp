@@ -30,6 +30,23 @@ int binary_search(int a[],int n,int key){
 
 }
 
+int binary_search_recursion(int a[],int low,int high,int key){
+    while(low<=high){
+       int mid=(low+high)/2;
+       if(a[mid]==key){
+        return mid;
+       }else if(a[mid]>key){
+           return binary_search_recursion(a,low,mid-1,key);
+       }else if(a[mid]<key){
+            return binary_search_recursion(a,mid+1,high,key);
+       }
+    }
+    return -1;
+
+
+}
+
+
 int main(){
     int n;
     cout<<"Enter the no of elements"<<endl;
@@ -50,7 +67,7 @@ int main(){
     int key,position;
     cout<<"Enter the key"<<endl;
     cin>>key;
-    position=binary_search(a,n,key);
+    position=binary_search_recursion(a,0,n-1,key);
     if(position==-1){
         cout<<"key not found"<<endl;
     }else{
